@@ -1,0 +1,27 @@
+<form class="grid-container" (submit)="addFood()">
+        <label class="grid-item">Food name</label>
+        <label class="grid-item">Category</label>
+        <label class="grid-item">Cost</label>
+        <label class="grid-item">Description</label>
+
+        <!-- Food name -->
+        <input [(ngModel)]="inputName" type="text" name="inputName" placeholder="Enter food name..." class="grid-item form-control">
+
+        <!-- Category -->
+        <select [(ngModel)]="inputCategory" class="grid-item form-select" name="inputCategory" aria-label=".form-select-sm example">
+            <option value="" disabled selected hidden>Choose cateogry</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="brunch">Brunch</option>
+            <option value="lunch">Lunch</option>
+            <option value="fruit">Fruit</option>
+        </select>
+
+        <!-- Cost -->
+        <input [(ngModel)]="inputCost" type="number" step="0.01" name="inputCost" class="grid-item form-control">
+
+        <!-- Description -->
+        <textarea [(ngModel)]="inputDescription" type="text" name="inputDescription" placeholder="Enter description" class="grid-item form-control"></textarea>
+
+        <button type="submit" class="grid-item">Submit</button>
+
+</form>

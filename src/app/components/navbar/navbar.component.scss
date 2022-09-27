@@ -1,0 +1,57 @@
+$brandRed    : #A84B5D;
+$brandYellow : #F6EFA6;
+$brandBlack  : #2E2F2F;
+$brandBlue   : #759FBC;
+$tabletSize  : 1000px;
+$brandFont   : "Brush Script MT", cursive;
+
+#navbar{
+    background: $brandRed;
+    background: -webkit-linear-gradient(top left, $brandRed, $brandYellow);
+    background: -moz-linear-gradient(top left, $brandRed, $brandYellow);
+    background: linear-gradient(to bottom right, $brandRed, $brandYellow);
+
+    .navbar-brand{
+        padding: 1rem 0;
+        display: block;
+        text-decoration: none;
+        font-family: $brandFont;
+        font-size: 2.5rem;
+        line-height: 52px;
+    }
+
+    .nav-link{
+        font-weight: normal;
+        font-size: 20px;
+        color: $brandBlack !important;
+        text-align: center;
+    }
+    .nav-link:hover{
+        font-weight: bold;
+        border-bottom: 3px solid $brandBlack;
+
+        @media only screen and (max-width: $tabletSize){
+            border-bottom: none !important;
+        }
+    }
+    .active{
+        font-weight: bold;
+    }
+
+    .navbar-toggler{
+        padding-right: 15px;
+        outline: none !important;
+        border: none !important;
+    }
+
+    #web{
+        font-size: 45px;
+        color: $brandRed;
+        padding-right: 2rem;
+    }
+    #web:hover{
+        color: $brandBlue;
+        text-decoration: none;
+    }
+}
+
