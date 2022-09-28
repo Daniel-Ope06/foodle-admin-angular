@@ -7,7 +7,7 @@ $inputBoxSpace : 30px;
 
 .grid-container {
     display: grid;
-    grid-gap: 10px $inputBoxSpace;
+    grid-gap: $inputBoxSpace;
     grid-template-columns: auto auto auto auto;
     margin: $inputBoxSpace;
 
@@ -19,6 +19,7 @@ $inputBoxSpace : 30px;
         color: $brandRed;
         font-weight: bold;
         font-size: large;
+        margin-bottom: 10px;
     }
 
     input[type=text]{
@@ -26,21 +27,14 @@ $inputBoxSpace : 30px;
         background-color: white;
     }
 
-    textarea{
-        grid-column-start: 4;
-        grid-row-start: 2;
-        grid-row-end: 10;
-    }
-
     button{
-        grid-column-start: 4;
-        grid-row-start: 13;
         border-radius: 5rem;
         font-size: 1rem;
         font-weight: bold;
         width: 100px;
         color: $brandBlack;
         background-color: $brandRed;
+        margin-right: 10px;
     }
 
     button:hover{

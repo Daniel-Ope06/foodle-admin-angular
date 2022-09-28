@@ -1,1 +1,43 @@
-<p>read works!</p>
+<form class="form-grid" (submit)="filterName()">
+    <!-- Filter name -->
+    <div class="gid-item">
+        <label for="inputName">Food name</label>
+        <input [(ngModel)]="inputName" type="text" id="inputName" name="inputName" placeholder="Enter food name..." class="form-control">
+    </div>
+
+    <!-- Filter category -->
+    <div class="gid-item">
+        <input type="checkbox" class="btn-check" id="breakfast" autocomplete="off">
+        <label class="btn btn-outline-primary" for="breakfast">Breakfast</label><br>
+    
+        <input type="checkbox" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
+        <label class="btn btn-outline-secondary" for="btn-check-2-outlined">Checked</label><br>
+    </div>
+
+
+    <!-- Buttons -->
+    <div class="gid-item">
+        <button type="submit">Filter</button>
+        <button type="reset">Clear Form</button>
+    </div>
+</form>
+
+<div class="grid-container">
+    <!-- Table headers -->
+    <div class="grid-item table-head">ID</div>
+    <div class="grid-item table-head">Name</div>
+    <div class="grid-item table-head">Category</div>
+    <div class="grid-item table-head">Cost (₦)</div>
+    <div class="grid-item table-head">Description</div>
+</div>
+
+<div class="grid-container" *ngFor="let food of tableData; let i = index">
+    <!-- Table data -->
+    <div class="grid-item table-data">{{ i+1 }}</div>
+    <div class="grid-item table-data">{{ food.name }}</div>
+    <div class="grid-item table-data">{{ food.category }}</div>
+    <div class="grid-item table-data food-cost">{{ food.cost }}</div>
+    <div class="grid-item table-data food-description">{{ food.description }}</div>
+</div>
+
+

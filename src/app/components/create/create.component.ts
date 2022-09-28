@@ -1,7 +1,7 @@
-import { formatCurrency } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Database, ref, get, set, update, remove } from '@angular/fire/database';
+import { Database } from '@angular/fire/database';
 import { Food } from '../../models/food.model';
+import { FoodDB } from '../../models/foodDB.model';
 
 @Component({
   selector: 'app-create',
@@ -10,76 +10,62 @@ import { Food } from '../../models/food.model';
 })
 export class CreateComponent implements OnInit {
   menu: Food[];
+  food: Food;
   inputName: string;
   inputCategory: string;
   inputCost: number;
   inputDescription: string;
 
   constructor(public database: Database) {
-    this.menu = CreateComponent.getAllFoods(this.database);
+    this.menu = FoodDB.getAllFoods(this.database);
+    this.food = {name: "", category: "", cost: 0.01, description: ""};
     this.inputName = "";
     this.inputCategory = "";
-    this.inputCost = 0.01;
+    this.inputCost = 0.01; // default or initial cost is 0.01
     this.inputDescription = "";
   }
 
   ngOnInit(): void {
   }
 
+  initializeFood(): void{
+    this.food = {
+      name:this.inputName.toLowerCase(),
+      category: this.inputCategory,
+      cost : this.inputCost,
+      description: this.inputDescription
+    }
+  }
+
+  isValid(): boolean{
+    if ((this.inputName.length > 0) && (this.inputCategory.length > 0) && (this.inputDescription.length > 0)){
+      return true;
+    }
+    return false;
+  }
+
+  resetForm(): void{
+    this.inputName = "";
+    this.inputCategory = "";
+    this.inputCost = 0.01;
+    this.inputDescription = "";
+  }
+
   addFood(): void{
-    if (CreateComponent.isValid(this.inputName, this.inputCategory, this.inputCost, this.inputDescription)){
+    if (this.isValid()){
+      this.initializeFood();
+
       // add to menu array
-      this.menu.push(
-        {
-          name:this.inputName,
-          category: this.inputCategory,
-          cost : this.inputCost,
-          description: this.inputDescription
-        }
-      );
+      this.menu.push(this.food);
 
       // add to firebase
-      set(ref(this.database, 'menu/food_' + this.menu.length.toString()), {
-        name:this.inputName,
-        category: this.inputCategory,
-        cost : this.inputCost,
-        description: this.inputDescription
-      });
-
-      // reset form
-      this.inputName = "";
-      this.inputCategory = "";
-      this.inputCost = 0;
-      this.inputDescription = "";
+      FoodDB.addToFoodDB(this.database, this.food);
 
       alert("Food added successfully")
+      this.resetForm();
     }
     else{
       alert("Fill all fields");
     }
-  }
-
-
-  private static getAllFoods(db: Database): Food[]{
-    let arr: Food[] = [];
-    get(ref(db, 'menu')).then((snapshot) => {
-      if (snapshot.exists()) {
-        snapshot.forEach(element =>{
-          arr.push(element.val());
-        });
-      } else {
-        console.log("No data available");
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
-    return arr;
-  }
-
-  private static isValid(name: string, category: string, cost: number, description: string): boolean{
-    if ((name.length > 0) && (description.length > 0) && (category.length > 1)){
-      return true;
-    }
-    return false;
   }
 }

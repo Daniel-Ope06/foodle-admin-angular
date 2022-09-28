@@ -1,0 +1,49 @@
+$brandRed    : #A84B5D;
+$brandYellow : #F6EFA6;
+$brandBlack  : #2E2F2F;
+$brandBlue   : #759FBC;
+$tabletSize  : 1000px;
+$inputBoxSpace : 30px;
+
+.reload-btn{
+    margin-left: $inputBoxSpace;
+
+    .bi-arrow-repeat{
+        color: $brandRed;
+        font-size: 30px;
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 5% 20% 20% 20% 30% 5%;
+    margin-left: $inputBoxSpace;
+    margin-right: $inputBoxSpace;
+    margin-bottom: 0px;
+
+    .grid-item{
+        border: 3px solid $brandBlack;
+        border-collapse: collapse;
+    }
+
+    .table-head{
+        color: $brandRed;
+        font-weight: bold;
+        font-size: large;
+        text-align: center;
+    }
+
+    .table-data{
+        color: $brandBlack;
+        font-size: large;
+        text-align: center;
+    }
+
+    .food-cost{
+        text-align: right;
+    }
+
+    .food-description{
+        text-align: center;
+    }
+}

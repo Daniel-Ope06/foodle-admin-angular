@@ -7,9 +7,9 @@ import { UpdateComponent } from './components/update/update.component';
 
 const routes: Routes = [
   {path:'create', title: 'Foodle Create', component: CreateComponent},
-  {path:'read', title: 'Foodle Create', component: ReadComponent},
-  {path:'update', title: 'Foodle Create', component: UpdateComponent},
-  {path:'delete', title: 'Foodle Create', component: DeleteComponent},
+  {path:'read', title: 'Foodle Read', component: ReadComponent},
+  {path:'update', title: 'Foodle Update', component: UpdateComponent},
+  {path:'delete', title: 'Foodle Delete', component: DeleteComponent},
   {path:'', redirectTo: 'create', pathMatch: 'full'},
 ];
 
