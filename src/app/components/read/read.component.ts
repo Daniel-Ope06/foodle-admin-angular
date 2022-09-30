@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Database } from '@angular/fire/database';
 import { Food } from '../../models/food.model';
-import { FoodDB } from '../../models/foodDB.model';
+import { FoodDB } from '../../services/foodDB.service';
 
 @Component({
   selector: 'app-read',

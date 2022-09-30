@@ -1,0 +1,59 @@
+$brandRed    : #A84B5D;
+$brandYellow : #F6EFA6;
+$brandBlack  : #2E2F2F;
+$brandBlue   : #759FBC;
+$tabletSize  : 1000px;
+$inputBoxSpace : 30px;
+
+.upper-grid {
+    display: grid;
+    grid-gap: $inputBoxSpace;
+    grid-template-columns: 25% auto;
+    margin: $inputBoxSpace;
+
+    @media (max-width: $tabletSize){
+        grid-template-columns: auto;
+    }
+}
+
+.lower-grid {
+    display: grid;
+    grid-gap: $inputBoxSpace;
+    grid-template-columns: auto auto auto;
+    margin: $inputBoxSpace;
+
+    @media (max-width: $tabletSize){
+        grid-template-columns: auto;
+    }
+}
+
+
+label{
+    color: $brandRed;
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 10px;
+}
+
+input[type=text]{
+    color: $brandBlack;
+    background-color: white;
+}
+
+button{
+    border-radius: 5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100px;
+    color: $brandBlack;
+    background-color: $brandRed;
+    margin-right: 10px;
+    margin-top: 45px;
+}
+
+button:hover{
+    color: $brandYellow;
+    @media only screen and (max-width: $tabletSize){
+        color: $brandBlack;
+    }
+}

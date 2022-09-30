@@ -1,6 +1,5 @@
 import { Database, ref, get, set, update, remove, query, orderByChild } from '@angular/fire/database';
-// import { Auth } from '@angular/fire/auth';
-import { Food } from './food.model';
+import { Food } from '../models/food.model';
 
 export class FoodDB{
     public static getAllFoods(db: Database): Food[]{
@@ -34,12 +33,14 @@ export class FoodDB{
           });
     }
 
-    public static filterNameFoodDB(db: Database, name: string){
-        query(ref(db, 'menu'), orderByChild('name'), );
-    }
-
     public static deleteFromFoodDB(db: Database, name: string): void{
         const foodID = this.hashFoodName(name);
-        remove(ref(db, `menu/${foodID}`));
+        remove(ref(db, `menu/${foodID}`))
+        .then(() =>{
+          alert("Food deleted");
+        })
+        .catch((error) => {
+          alert("Unable to delete");
+        });
     }
 }

@@ -1,1 +1,44 @@
-<p>update works!</p>
+<form class="upper-grid" (submit)="deleteFood()">
+    <!-- Food name -->
+    <div class="gid-item">
+        <label for="inputName">Food name</label>
+        <input [(ngModel)]="inputName" type="text" id="inputName" name="inputName" placeholder="Enter food name..." class="form-control">
+    </div>
+
+    <!-- Select button -->
+    <div class="gid-item">
+        <button type='submit'>Select</button>
+    </div>
+</form>
+
+<form class="lower-grid" (submit)="deleteFood()">
+        <!-- Category -->
+        <div class="gid-item">
+            <label for="inputCategory">Category</label>
+            <select [(ngModel)]="inputCategory" class="form-select" id="inputCategory" name="inputCategory" aria-label=".form-select-sm example">
+                <option value="" disabled selected hidden>Choose cateogry</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="brunch">Brunch</option>
+                <option value="lunch">Lunch</option>
+                <option value="fruit">Fruit</option>
+            </select>
+        </div>
+
+        <!-- Cost -->
+        <div class="gid-item">
+            <label for="inputCost">Cost (₦)</label>
+            <input [(ngModel)]="inputCost" type="number" step="0.01" id="inputCost" name="inputCost" class="form-control">
+        </div>
+
+        <!-- Description -->
+        <div class="gid-item">
+            <label for="inputDescription">Description</label>
+            <textarea [(ngModel)]="inputDescription" type="text" id="inputDescription" name="inputDescription" placeholder="Enter description" class="form-control"></textarea>
+        </div>
+
+    <!-- Select button -->
+    <div class="gid-item">
+        <button type='submit'>Modify</button>
+        <button type="reset">Clear Form</button>
+    </div>
+</form>

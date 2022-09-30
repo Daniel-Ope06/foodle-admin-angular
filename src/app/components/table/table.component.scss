@@ -46,4 +46,11 @@ $inputBoxSpace : 30px;
     .food-description{
         text-align: center;
     }
+
+    .bi-trash{
+        color: $brandRed;
+    }
+    .bi-trash:hover{
+        color: $brandBlue;
+    }
 }

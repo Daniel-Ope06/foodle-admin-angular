@@ -1,1 +1,15 @@
-<p>delete works!</p>
+<form class="grid-container" (submit)="deleteFood()">
+    <!-- Food name -->
+    <div class="gid-item">
+        <label for="inputName">Food name</label>
+        <input [(ngModel)]="inputName" type="text" id="inputName" name="inputName" placeholder="Enter food name..." class="form-control">
+    </div>
+
+    <!-- Delete button -->
+    <div class="gid-item">
+        <button type='submit'>Delete</button>
+        <button type="reset">Clear Form</button>
+    </div>
+</form>
+
+<app-table></app-table>
