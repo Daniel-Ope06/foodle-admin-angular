@@ -1,19 +1,24 @@
-<form class="form-grid" (submit)="filterName()">
+<form class="form-grid" (submit)="filterFoodByName()">
     <!-- Filter name -->
     <div class="gid-item">
-        <label for="inputName">Food name</label>
-        <input [(ngModel)]="inputName" type="text" id="inputName" name="inputName" placeholder="Enter food name..." class="form-control">
+        <label for="filterName">Food name</label>
+        <input [(ngModel)]="filterName" type="text" id="filterName" name="filterName" placeholder="Search by food name..." class="form-control">
     </div>
 
     <!-- Filter category -->
     <div class="gid-item">
-        <input type="checkbox" class="btn-check" id="breakfast" autocomplete="off">
-        <label class="btn btn-outline-primary" for="breakfast">Breakfast</label><br>
-    
-        <input type="checkbox" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
-        <label class="btn btn-outline-secondary" for="btn-check-2-outlined">Checked</label><br>
-    </div>
+        <input type="checkbox" class="btn-check" id="breakfast" value="breakfast" autocomplete="off">
+        <label class="btn btn-outline-warning" for="breakfast">Breakfast</label>
 
+        <input type="checkbox" class="btn-check" id="brunch" value="brunch" autocomplete="off">
+        <label class="btn btn-outline-warning" for="brunch">Brunch</label>
+
+        <input type="checkbox" class="btn-check" id="lunch" value="lunch" autocomplete="off">
+        <label class="btn btn-outline-warning" for="lunch">Lunch</label>
+
+        <input type="checkbox" class="btn-check" id="fruit" value="fruit" autocomplete="off">
+        <label class="btn btn-outline-warning" for="fruit">Fruit</label>
+    </div>
 
     <!-- Buttons -->
     <div class="gid-item">
