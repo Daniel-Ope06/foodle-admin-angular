@@ -36,7 +36,7 @@ export class CreateComponent implements OnInit {
   }
 
   isValid(): boolean{
-    if ((this.inputName.length > 0) && (this.inputCategory.length > 0)){
+    if ((this.inputName != null) && (this.inputName.replace(/\s+/g, ' ').trim().length > 1) && (this.inputCategory.length > 0)){
       return true;
     }
     return false;
