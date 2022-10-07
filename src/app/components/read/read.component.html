@@ -28,7 +28,6 @@
     <div class="grid-item table-head">Name</div>
     <div class="grid-item table-head">Category</div>
     <div class="grid-item table-head">Cost (₦)</div>
-    <div class="grid-item table-head">Description</div>
 </div>
 
 <div class="grid-container" *ngFor="let food of tableData; let i = index">
@@ -37,7 +36,6 @@
     <div class="grid-item table-data">{{ food.name }}</div>
     <div class="grid-item table-data">{{ food.category }}</div>
     <div class="grid-item table-data food-cost">{{ food.cost }}</div>
-    <div class="grid-item table-data food-description">{{ food.description }}</div>
 </div>
 
 

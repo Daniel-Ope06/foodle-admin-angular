@@ -9,7 +9,6 @@
     <div class="grid-item table-head">Name</div>
     <div class="grid-item table-head">Category</div>
     <div class="grid-item table-head">Cost (₦)</div>
-    <div class="grid-item table-head">Description</div>
     <div class="grid-item table-head">Delete</div>
 </div>
 
@@ -19,7 +18,6 @@
     <div class="grid-item table-data">{{ food.name }}</div>
     <div class="grid-item table-data">{{ food.category }}</div>
     <div class="grid-item table-data food-cost">{{ food.cost }}</div>
-    <div class="grid-item table-data food-description">{{ food.description }}</div>
     <div class="grid-item table-data">
         <i class="bi bi-trash" (click)="deleteFood(food.name)"></i>
     </div>
