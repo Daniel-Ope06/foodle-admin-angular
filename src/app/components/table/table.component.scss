@@ -16,7 +16,7 @@ $inputBoxSpace : 30px;
 
 .grid-container {
     display: grid;
-    grid-template-columns: 5% 20% 20% 20% 30% 5%;
+    grid-template-columns: 5% 30% 30% 30% 5%;
     margin-left: $inputBoxSpace;
     margin-right: $inputBoxSpace;
     margin-bottom: 0px;
@@ -41,10 +41,6 @@ $inputBoxSpace : 30px;
 
     .food-cost{
         text-align: right;
-    }
-
-    .food-description{
-        text-align: center;
     }
 
     .bi-trash{
