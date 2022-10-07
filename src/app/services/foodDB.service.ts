@@ -24,7 +24,7 @@ export class FoodDB{
     }
 
     public static addToFoodDB(db: Database, food: Food): void{
-        const foodID = this.hashFoodName(food.name);
+        const foodID: string = this.hashFoodName(food.name);
         set(ref(db, `menu/${foodID}`), {
             name: food.name,
             category: food.category,
@@ -32,8 +32,45 @@ export class FoodDB{
           });
     }
 
+    public static filterFoodByName(db: Database, filterName: string): Food[]{
+      let arr: Food[] = [];
+      const searchName: string = filterName.replace(/\s+/g, ' ').trim().toLowerCase();
+      get(ref(db, 'menu')).then((snapshot) => {
+        if (snapshot.exists()) {
+          snapshot.forEach(element =>{
+            if (element.val().name.includes(searchName)){
+              arr.push(element.val());
+            }
+          });
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+      return arr;
+    }
+
+    public static filterFoodByCategory(db: Database, category: string): Food[]{
+      let arr: Food[] = [];
+      get(ref(db, 'menu')).then((snapshot) => {
+        if (snapshot.exists()) {
+          snapshot.forEach(element =>{
+            if (element.val().category === category){
+              arr.push(element.val());
+            }
+          });
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+      return arr;
+    }
+
     public static deleteFromFoodDB(db: Database, name: string): void{
-        const foodID = this.hashFoodName(name);
+        const foodID: string = this.hashFoodName(name);
         remove(ref(db, `menu/${foodID}`))
         .then(() =>{
           alert("Food deleted");
