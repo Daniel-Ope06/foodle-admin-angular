@@ -14,15 +14,14 @@ export class CreateComponent implements OnInit {
   inputName: string;
   inputCategory: string;
   inputCost: number;
-  inputDescription: string;
-
+  defualtCost: number = 9.99;
+ 
   constructor(public database: Database) {
     this.menu = FoodDB.getAllFoods(this.database);
-    this.food = {name: "", category: "", cost: 0.01, description: ""};
+    this.food = {name: "", category: "", cost: this.defualtCost};
     this.inputName = "";
     this.inputCategory = "";
-    this.inputCost = 0.01; // default or initial cost is 0.01
-    this.inputDescription = "";
+    this.inputCost = this.defualtCost;
   }
 
   ngOnInit(): void {
@@ -32,13 +31,12 @@ export class CreateComponent implements OnInit {
     this.food = {
       name:this.inputName.toLowerCase(),
       category: this.inputCategory,
-      cost : this.inputCost,
-      description: this.inputDescription
+      cost : this.inputCost
     }
   }
 
   isValid(): boolean{
-    if ((this.inputName.length > 0) && (this.inputCategory.length > 0) && (this.inputDescription.length > 0)){
+    if ((this.inputName != null) && (this.inputName.replace(/\s+/g, ' ').trim().length > 1) && (this.inputCategory.length > 0)){
       return true;
     }
     return false;
@@ -47,8 +45,7 @@ export class CreateComponent implements OnInit {
   resetForm(): void{
     this.inputName = "";
     this.inputCategory = "";
-    this.inputCost = 0.01;
-    this.inputDescription = "";
+    this.inputCost = this.defualtCost;
   }
 
   addFood(): void{

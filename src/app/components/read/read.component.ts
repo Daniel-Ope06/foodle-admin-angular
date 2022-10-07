@@ -10,18 +10,35 @@ import { FoodDB } from '../../services/foodDB.service';
 })
 export class ReadComponent implements OnInit {
   tableData: Food[];
-  inputName: string;
+  filterName: string;
 
   constructor(public database: Database) {
     this.tableData = FoodDB.getAllFoods(this.database);
-    this.inputName = "";
+    this.filterName = "";
+    console.log("tableData:");
+    console.log(this.tableData);
    }
 
   ngOnInit(): void {
   }
 
-  filterName(): void{
-    this.tableData = this.tableData.filter((v: Food, i: number) => v.name.includes(this.inputName.toLowerCase().trim()));
+  isValidName(): boolean{
+    if ((this.filterName != null) && (this.filterName.replace(/\s+/g, ' ').trim().length > 0) && (this.filterName.replace(/\s+/g, ' ').trim() !== ' ')){
+      return true;
+    }
+    return false;
   }
 
+  filterNameMethod(): void{
+    this.tableData = this.tableData.filter((v: Food, i: number) => v.name.includes(this.filterName.toLowerCase().trim()));
+  }
+
+  filterFoodByName(){
+    if (this.isValidName()){
+      this.tableData = FoodDB.filterFoodByName(this.database, this.filterName);
+    }
+    else{
+      console.log('d')
+    }
+  }
 }
