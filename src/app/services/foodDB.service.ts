@@ -29,7 +29,6 @@ export class FoodDB{
             name: food.name,
             category: food.category,
             cost : food.cost,
-            description: food.description
           });
     }
 
