@@ -11,6 +11,12 @@ import { FoodDB } from '../../services/foodDB.service';
 export class ReadComponent implements OnInit {
   tableData: Food[];
   filterName: string;
+  filterFood: {name:string, selected:boolean}[] =[
+    {name: "breakfast", selected: false},
+    {name: "brunch", selected: false},
+    {name: "lunch", selected: false},
+    {name: "fruit", selected: false}
+  ];
 
   constructor(public database: Database) {
     this.tableData = FoodDB.getAllFoods(this.database);
@@ -37,8 +43,17 @@ export class ReadComponent implements OnInit {
     if (this.isValidName()){
       this.tableData = FoodDB.filterFoodByName(this.database, this.filterName);
     }
-    else{
-      console.log('d')
-    }
+  }
+
+  reloadTable(): void{
+    this.tableData = FoodDB.getAllFoods(this.database);
+  }
+
+  deleteFood(foodName: string): void{
+    // remove from tableData & screen
+    this.tableData = this.tableData.filter((v: Food, i: number) => v.name !== foodName);
+
+    // remove from firebase
+    FoodDB.deleteFromFoodDB(this.database, foodName);
   }
 }
