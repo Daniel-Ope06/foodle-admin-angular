@@ -1,7 +1,14 @@
-$brandRed    : #A84B5D;
+$brandRed    : #a84b5d;
 $brandYellow : #F6EFA6;
 $brandBlack  : #2E2F2F;
 $brandBlue   : #759FBC;
+
+$color-breakfast : #E66771;
+$color-brunch : #E97451;
+$color-lunch : #FD5E53;
+$color-fruit : #FF9999;
+
+$box-radius : 5px;
 $tabletSize  : 1000px;
 $inputBoxSpace : 30px;
 
@@ -14,39 +21,76 @@ $inputBoxSpace : 30px;
     }
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 5% 30% 30% 30% 5%;
+
+table, th, td {
+    padding: 10px;
+    border: 2px ridge $brandBlack;
+    text-align: center;
+}
+table{
     margin-left: $inputBoxSpace;
     margin-right: $inputBoxSpace;
-    margin-bottom: 0px;
+}
+th{
+	background-color: $brandRed;
+	color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+tr:nth-child(even){
+	background-color: rgba(168, 75, 93, 0.2);
+}
+tr:hover{
+	background-color: rgba(168, 75, 93, 0.7);
+    color: white;
+}
+td{
+    font-size: 15px;
+}
 
-    .grid-item{
-        border: 3px solid $brandBlack;
-        border-collapse: collapse;
-    }
 
-    .table-head{
-        color: $brandRed;
-        font-weight: bold;
-        font-size: large;
-        text-align: center;
-    }
+.food-id{
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.food-name{
+    text-transform: capitalize;
+    padding-left: 15rem;
+    padding-right: 15rem;
+}
+.category{
+    padding-top: 20px;
+}
+.food-category{
+    text-transform: capitalize;
+    border-radius: $box-radius;
+    background-color: $brandRed;
+    padding: 0.2rem 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+.breakfast{
+    background-color: $color-breakfast;
+}
+.brunch{
+    background-color: $color-brunch;
+}
+.lunch{
+    background-color: $color-lunch;
+}
+.fruit{
+    background-color: $color-fruit;
+}
 
-    .table-data{
-        color: $brandBlack;
-        font-size: large;
-        text-align: center;
-    }
+.food-cost{
+    text-align: right;
+    padding-left: 30rem;
+}
 
-    .food-cost{
-        text-align: right;
-    }
-
-    .bi-trash{
-        color: $brandRed;
-    }
-    .bi-trash:hover{
-        color: $brandBlue;
-    }
+.bi-trash{
+    color: $brandRed;
+}
+.bi-trash:hover{
+    color: $brandYellow;
 }
