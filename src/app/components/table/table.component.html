@@ -3,22 +3,22 @@
     <i class="bi bi-arrow-repeat" (click)="reloadTable()"></i>
 </div>
 
-<div class="grid-container">
-    <!-- Table headers -->
-    <div class="grid-item table-head">ID</div>
-    <div class="grid-item table-head">Name</div>
-    <div class="grid-item table-head">Category</div>
-    <div class="grid-item table-head">Cost (₦)</div>
-    <div class="grid-item table-head">Delete</div>
-</div>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Cost (₦)</th>
+        <th>Delete</th>
+    </thead>
 
-<div class="grid-container" *ngFor="let food of tableData; let i = index">
-    <!-- Table data -->
-    <div class="grid-item table-data">{{ i+1 }}</div>
-    <div class="grid-item table-data">{{ food.name }}</div>
-    <div class="grid-item table-data">{{ food.category }}</div>
-    <div class="grid-item table-data food-cost">{{ food.cost }}</div>
-    <div class="grid-item table-data">
-        <i class="bi bi-trash" (click)="deleteFood(food.name)"></i>
-    </div>
-</div>
+    <tbody>
+        <tr *ngFor="let food of tableData; let i = index">
+            <td class="food-id">{{ i+1 }}</td>
+            <td class="food-name">{{ food.name }}</td>
+            <td class="category"><p class="food-category" [class]=[food.category]>{{ food.category }}</p></td>
+            <td class="food-cost">{{ food.cost }}</td>
+            <td> <i class="bi bi-trash" (click)="deleteFood(food.name)"></i></td>
+        </tr>
+    </tbody>
+</table>
