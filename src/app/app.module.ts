@@ -15,6 +15,7 @@ import { ReadComponent } from './components/read/read.component';
 import { UpdateComponent } from './components/update/update.component';
 import { DeleteComponent } from './components/delete/delete.component';
 import { TableComponent } from './components/table/table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TableComponent } from './components/table/table.component';
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
-    provideRemoteConfig(() => getRemoteConfig())
+    provideRemoteConfig(() => getRemoteConfig()),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
