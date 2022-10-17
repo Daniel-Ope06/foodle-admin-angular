@@ -33,6 +33,9 @@ export class TableComponent implements OnInit {
   }
 
   openDeleteDialog(foodName: string, foodCategory: string, foodCost: number): void{
-    this.dialog.open(DeleteDialogComponent);
+    this.dialog.open(DeleteDialogComponent, {
+      data:{name: foodName, category: foodCategory, cost: foodCost},
+      width: '500px',
+    });
   }
 }
