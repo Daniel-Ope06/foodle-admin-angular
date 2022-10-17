@@ -23,7 +23,7 @@ $inputBoxSpace : 30px;
 
 
 table, th, td {
-    padding: 10px;
+    padding: 5px;
     border: 2px ridge $brandBlack;
     text-align: center;
 }
@@ -50,16 +50,17 @@ td{
 
 
 .food-id{
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 .food-name{
     text-transform: capitalize;
-    padding-left: 15rem;
-    padding-right: 15rem;
+    padding-left: 13rem;
+    padding-right: 13rem;
 }
-.category{
-    padding-top: 20px;
+.food-cost{
+    text-align: right;
+    padding-left: 29rem;
 }
 .food-category{
     text-transform: capitalize;
@@ -83,14 +84,9 @@ td{
     background-color: $color-fruit;
 }
 
-.food-cost{
-    text-align: right;
-    padding-left: 30rem;
-}
-
-.bi-trash{
+.bi{
     color: $brandRed;
 }
-.bi-trash:hover{
+.bi:hover{
     color: $brandYellow;
 }
