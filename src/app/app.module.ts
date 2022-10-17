@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     ReadComponent,
     UpdateComponent,
     DeleteComponent,
-    TableComponent
+    TableComponent,
+    DeleteDialogComponent
   ],
   imports: [
     FormsModule,
