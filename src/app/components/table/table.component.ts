@@ -69,7 +69,7 @@ export class TableComponent implements OnInit {
         this.updateFood(item.newName, item.newCategory, item.newCost)
         this.reloadTable();
       }
-      else{
+      else if (item.response == 1 && !this.isValid(item.newName, item.newCategory)){
         alert("Invalid inputs")
       }
     })
