@@ -33,16 +33,51 @@ export class TableComponent implements OnInit {
     FoodDB.deleteFromFoodDB(this.database, foodName);
   }
 
+  isValid(foodName: string, foodCategory: string): boolean{
+    if ((foodName != null) && (foodName.replace(/\s+/g, ' ').trim().length > 1) && (foodCategory.length > 0)){
+      return true;
+    }
+    return false;
+  }
+
+  updateFood(foodName: string, foodCategory: string, foodCost: number): void{
+    // add to menu array
+    this.tableData.push({
+      name: foodName,
+      category: foodCategory,
+      cost: foodCost
+    });
+
+    // add to firebase
+    FoodDB.addToFoodDB(this.database, {
+      name: foodName,
+      category: foodCategory,
+      cost: foodCost
+    });
+
+    alert("Food updated successfully")
+  }
+
   openEditDialog(foodName: string, foodCategory: string, foodCost: number): void{
     const editDialog = this.dialog.open(EditDialogComponent, {
-      data:{name: this.capsFirstLetter(foodName), category: this.capsFirstLetter(foodCategory), cost: foodCost},
+      data:{name: this.capsFirstLetter(foodName), category: foodCategory, cost: foodCost},
+      width: "350px",
     });
+    editDialog.afterClosed().subscribe(item =>{
+      if (item.response == 1 && this.isValid(item.newName, item.newCategory)){
+        this.deleteFood(foodName);
+        this.updateFood(item.newName, item.newCategory, item.newCost)
+        this.reloadTable();
+      }
+      else{
+        alert("Invalid inputs")
+      }
+    })
   }
 
   openDeleteDialog(foodName: string, foodCategory: string, foodCost: number): void{
     const deleteDialog = this.dialog.open(DeleteDialogComponent, {
       data:{name: this.capsFirstLetter(foodName), category: this.capsFirstLetter(foodCategory), cost: foodCost},
-      //phrase.charAt(0).toUpperCase() + phrase.slice(1)
     });
     deleteDialog.afterClosed().subscribe(response =>{
       if (response == 1){
