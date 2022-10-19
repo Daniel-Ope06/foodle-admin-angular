@@ -1,0 +1,33 @@
+$brandRed    : #A84B5D;
+$brandYellow : #F6EFA6;
+$brandBlack  : #2E2F2F;
+$brandBlue   : #759FBC;
+$tabletSize  : 1000px;
+
+.mat-dialog-title{
+    background-color: #A84B5D;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+p{
+    font-weight: bold;
+}
+
+button{
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 0px 10px;
+    color: $brandBlack;
+    background-color: $brandRed;
+    margin-right: 5px;
+}
+
+button:hover{
+    color: $brandYellow;
+    @media only screen and (max-width: $tabletSize){
+        color: $brandBlack;
+    }
+}

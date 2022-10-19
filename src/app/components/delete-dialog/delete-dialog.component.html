@@ -1,13 +1,9 @@
 <h1 mat-dialog-title>Delete food</h1>
 <div mat-dialog-content>
   Would you like to delete?
-  <ul>
-    <li>Name: {{ data.name }}</li>
-    <li>Category: <div class="food-category" [class]=[data.category]>{{ data.category }}</div></li>
-    <li>Cost: ₦{{ data.cost }}</li>
-  </ul>
+  <p>{{ data.name }} | {{ data.category }} | ₦{{ data.cost }}</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close>No</button>
-  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+  <button type="button" mat-button (click)="closeDialog(0)">No</button>
+  <button type="button" mat-button (click)="closeDialog(1)">Ok</button>
 </div>
