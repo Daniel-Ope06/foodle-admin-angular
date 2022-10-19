@@ -46,7 +46,7 @@ export class FoodDB{
           console.log("No data available");
         }
       }).catch((error) => {
-        console.error(error);
+        console.log(error);
       });
       return arr;
     }
@@ -64,7 +64,7 @@ export class FoodDB{
           console.log("No data available");
         }
       }).catch((error) => {
-        console.error(error);
+        console.log(error);
       });
       return arr;
     }
@@ -73,10 +73,10 @@ export class FoodDB{
         const foodID: string = this.hashFoodName(name);
         remove(ref(db, `menu/${foodID}`))
         .then(() =>{
-          alert("Food deleted");
+          console.log("Food deleted");
         })
         .catch((error) => {
-          alert("Unable to delete");
+          console.log("Unable to delete");
         });
     }
 }
