@@ -6,10 +6,10 @@ import { ReadComponent } from './components/read/read.component';
 import { UpdateComponent } from './components/update/update.component';
 
 const routes: Routes = [
-  {path:'create', title: 'Foodle Create', component: CreateComponent},
-  {path:'read', title: 'Foodle Read', component: ReadComponent},
-  {path:'update', title: 'Foodle Update', component: UpdateComponent},
-  {path:'delete', title: 'Foodle Delete', component: DeleteComponent},
+  {path:'create', title: 'Foodle Admin | Create', component: CreateComponent},
+  {path:'read', title: 'Foodle Admin | Read', component: ReadComponent},
+  {path:'update', title: 'Foodle Admin | Update', component: UpdateComponent},
+  {path:'delete', title: 'Foodle Admin | Delete', component: DeleteComponent},
   {path:'', redirectTo: 'create', pathMatch: 'full'},
 ];
 
