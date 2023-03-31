@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  foodleSite: string = "http://danielope.pythonanywhere.com/home"
+  foodleSite: string = "https://foodle-app-ope.web.app/home";
 
   navbarLinks = [
     {label: "Create", routerLink: "create"},
